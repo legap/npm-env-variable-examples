@@ -4,9 +4,9 @@
 
 - [Introduction](#introduction)
 - [Experiments](#experiments)
-    - [Passing a variable from the command line](#passing a variable from the command line)
-    - [Passing a variable from npmrc](#passing a variable from npmrc)
-    - [Passing a variable from package.json](#passing a variable from package.json)
+    - [Passing a variable from the command line](#passing-a-variable-from-the-command-line)
+    - [Passing a variable from npmrc](#passing-a-variable-from-npmrc)
+    - [Passing a variable from package.json](#passing-a-variable-from-package.json)
 
 ## Introduction
 
