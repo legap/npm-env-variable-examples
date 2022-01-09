@@ -5,31 +5,31 @@ console.log(`Platform: ${os.platform()}-${os.arch()}`)
 console.log(`================================================================================`)
 console.log(`variables matching our key`)
 console.log(`--------------------------------------------------------------------------------`)
-logMatchingVariableKeys('CYPRESS_VERIFY_TIMEOUT')
+logMatchingVariableKeys('MY_CUSTOM_VARIABLE')
 console.log(`--------------------------------------------------------------------------------`)
 
-const getEnvLower = getEnv('cypress_verify_timeout')
-const getEnvUpper = getEnv('CYPRESS_VERIFY_TIMEOUT')
+const getEnvLower = getEnv('my_custom_variable')
+const getEnvUpper = getEnv('MY_CUSTOM_VARIABLE')
 
 let structuredTableData = [
     {
-        variable: 'CYPRESS_VERIFY_TIMEOUT',
-        lowercase: process.env.cypress_verify_timeout,
-        uppercase: process.env.CYPRESS_VERIFY_TIMEOUT,
+        variable: 'MY_CUSTOM_VARIABLE',
+        lowercase: process.env.my_custom_variable,
+        uppercase: process.env.MY_CUSTOM_VARIABLE,
         getEnvLower: getEnvLower,
         getEnvUpper: getEnvUpper
     },
     {
-        variable: 'npm_config_CYPRESS_VERIFY_TIMEOUT',
-        lowercase: process.env.npm_config_cypress_verify_timeout,
-        uppercase: process.env.npm_config_CYPRESS_VERIFY_TIMEOUT,
+        variable: 'npm_config_MY_CUSTOM_VARIABLE',
+        lowercase: process.env.npm_config_my_custom_variable,
+        uppercase: process.env.npm_config_MY_CUSTOM_VARIABLE,
         getEnvLower: getEnvLower,
         getEnvUpper: getEnvUpper
     },
     {
-        variable: 'npm_package_config_CYPRESS_VERIFY_TIMEOUT',
-        lowercase: process.env.npm_package_config_cypress_verify_timeout,
-        uppercase: process.env.npm_package_config_CYPRESS_VERIFY_TIMEOUT,
+        variable: 'npm_package_config_MY_CUSTOM_VARIABLE',
+        lowercase: process.env.npm_package_config_my_custom_variable,
+        uppercase: process.env.npm_package_config_MY_CUSTOM_VARIABLE,
         getEnvLower: getEnvLower,
         getEnvUpper: getEnvUpper
     }
