@@ -1,6 +1,6 @@
 # Handling environment variables with npm
 
-## Table of content
+# Table of content
 
 - [Introduction](#introduction)
 - [Experiments](#experiments)
@@ -8,7 +8,7 @@
     - [Passing a variable from npmrc](#passing-a-variable-from-npmrc)
     - [Passing a variable from package.json](#passing-a-variable-from-package.json)
 
-## Introduction
+# Introduction
 
 This example demonstrates the behavior of npm when reading an environment variable that is defined at different
 locations.
@@ -39,17 +39,17 @@ The documentation about [npm config](https://docs.npmjs.com/cli/v8/using-npm/con
     >   CLI option `--globalconfig` or environment variable `$NPM_CONF_GLOBALCONFIG`)
 > * npm's built-in configuration file (`/path/to/npm/npmrc`)
 
-## Experiments
+# Experiments
 
 This project contains a simple setup with different environment variable constellations. Some experiments and their
 result are described bellow.
 
-### Passing a variable from the command line
+## Passing a variable from the command line
 
 In this experiment we simply pass the environment variable from the command line, one time in lower and the other time
 in upper case.
 
-#### Command line lowercase
+### Command line lowercase
 
 ```
 my_custom_variable=cli npm run verify
@@ -71,7 +71,7 @@ The table contains the following rows:
 - getEnvLower: value when calling the method getEnv with key in lowercase, i.e. `getEnv('my_custom_variable')`
 - getEnvUpper: value when calling the method getEnv with key in uppercase, i.e. `getEnv('MY_CUSTOM_VARIABLE')`
 
-#### Command line uppercase
+### Command line uppercase
 
 ```
 MY_CUSTOM_VARIABLE=cli npm run verify
@@ -83,11 +83,11 @@ MY_CUSTOM_VARIABLE=cli npm run verify
 |     'npm_config_MY_CUSTOM_VARIABLE'     | undefined | undefined |  undefined  |    'cli'    |
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |  undefined  |    'cli'    |
 
-### Passing a variable from npmrc
+## Passing a variable from npmrc
 
 Here we set the env variable in the `.npmrc` file and run `npm run verify`.
 
-#### npmrc lowercase
+### npmrc lowercase
 
 content of .npmrc:
 
@@ -101,13 +101,14 @@ my_custom_variable=npmrc
 |     'npm_config_MY_CUSTOM_VARIABLE'     |  'npmrc'  | undefined |   'npmrc'   |  undefined  |
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |   'npmrc'   |  undefined  |
 
-#### npmrc uppercase
+### npmrc uppercase
 
 content of .npmrc:
 
 ```
 MY_CUSTOM_VARIABLE=npmrc
 ```
+#### linux system
 
 |                variable                 | lowercase | uppercase | getEnvLower | getEnvUpper |
 |-----------------------------------------|-----------|-----------|-------------|-------------|
@@ -115,17 +116,25 @@ MY_CUSTOM_VARIABLE=npmrc
 |     'npm_config_MY_CUSTOM_VARIABLE'     |  'npmrc'  | undefined |   'npmrc'   |  undefined  |
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |   'npmrc'   |  undefined  |
 
+#### Windows system
+|                variable                 | lowercase | uppercase | getEnvLower | getEnvUpper |
+|-----------------------------------------|-----------|-----------|-------------|-------------|
+|          'MY_CUSTOM_VARIABLE'           | undefined | undefined |   'npmrc'   |   'npmrc'   |
+|     'npm_config_MY_CUSTOM_VARIABLE'     |  'npmrc'  |  'npmrc'  |   'npmrc'   |   'npmrc'   |
+| 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |   'npmrc'   |   'npmrc'   |
+
+
 This result is interesting. Even when setting `MY_CUSTOM_VARIABLE=npmrc` in uppercase it appears with the lowercase key.
 The experiment was made on a linux box. This has to do with the remark
 about [how npm handles env variables inside scripts](https://docs.npmjs.com/cli/v8/using-npm/config#environment-variables)
 and the linked [issue](https://github.com/npm/npm/issues/14528).
 
-### Passing a variable from package.json
+## Passing a variable from package.json
 
 Here, we include a config object in the package.json as described in
 the [package.json doc](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#config).
 
-#### package.json lowercase
+### package.json lowercase
 
 ```
   "config": {
@@ -139,7 +148,7 @@ the [package.json doc](https://docs.npmjs.com/cli/v8/configuring-npm/package-jso
 |     'npm_config_MY_CUSTOM_VARIABLE'     | undefined | undefined |  'package'  |  undefined  |
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | 'package' | undefined |  'package'  |  undefined  |
 
-#### package.json uppercase
+### package.json uppercase
 
 ```
   "config": {
