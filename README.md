@@ -1,4 +1,14 @@
-# npm-env-variable-examples
+# Handling environment variables with npm
+
+## Table of content
+
+- [Introduction](#introduction)
+- [Experiments](#experiments)
+    - [Passing a variable from the command line](#passing a variable from the command line)
+    - [Passing a variable from npmrc](#passing a variable from npmrc)
+    - [Passing a variable from package.json](#passing a variable from package.json)
+
+## Introduction
 
 This example demonstrates the behavior of npm when reading an environment variable that is defined at different
 locations.
@@ -73,7 +83,7 @@ MY_CUSTOM_VARIABLE=cli npm run verify
 |     'npm_config_MY_CUSTOM_VARIABLE'     | undefined | undefined |  undefined  |    'cli'    |
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |  undefined  |    'cli'    |
 
-### Passing a variable from .npmrc
+### Passing a variable from npmrc
 
 Here we set the env variable in the `.npmrc` file and run `npm run verify`.
 
