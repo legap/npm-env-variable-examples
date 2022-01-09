@@ -124,10 +124,13 @@ MY_CUSTOM_VARIABLE=npmrc
 | 'npm_package_config_MY_CUSTOM_VARIABLE' | undefined | undefined |   'npmrc'   |   'npmrc'   |
 
 
-This result is interesting. Even when setting `MY_CUSTOM_VARIABLE=npmrc` in uppercase it appears with the lowercase key.
-The experiment was made on a linux box. This has to do with the remark
-about [how npm handles env variables inside scripts](https://docs.npmjs.com/cli/v8/using-npm/config#environment-variables)
+This result is interesting.
+
+On a linux system, even when setting `MY_CUSTOM_VARIABLE=npmrc` in uppercase it appears with the lowercase key.
+This has to do with the remark about [how npm handles env variables inside scripts](https://docs.npmjs.com/cli/v8/using-npm/config#environment-variables)
 and the linked [issue](https://github.com/npm/npm/issues/14528).
+
+On a windows system, the variable appears twice, once with a lowercase key and another time with the uppercase key.
 
 ## Passing a variable from package.json
 
