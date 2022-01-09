@@ -1,0 +1,20 @@
+{
+  "name": "npm-env-variable-examples",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "verify": "node ./read-variable.js",
+    "verify_package_param": "CYPRESS_VERIFY_TIMEOUT=cli_in_package_json node ./read-variable.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legap/npm-env-variable-examples.git"
+  },
+  "license": "ISC",
+  "private": "true",
+  "bugs": {
+    "url": "https://github.com/legap/npm-env-variable-examples/issues"
+  },
+  "homepage": "https://github.com/legap/npm-env-variable-examples#readme"
+}
