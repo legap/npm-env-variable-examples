@@ -130,7 +130,7 @@ On a linux system, even when setting `MY_CUSTOM_VARIABLE=npmrc` in uppercase it 
 This has to do with the remark about [how npm handles env variables inside scripts](https://docs.npmjs.com/cli/v8/using-npm/config#environment-variables)
 and the linked [issue](https://github.com/npm/npm/issues/14528).
 
-On a windows system, the variable appears twice, once with a lowercase key and another time with the uppercase key.
+On a windows system, the variable appears twice, once with a lowercase key and another time with the uppercase key. The definition in `.npmrc` seems to be case-insensitive, it doesn't matter if the key is defined in lower or upper case, the result stays the same.
 
 ## Passing a variable from package.json
 
